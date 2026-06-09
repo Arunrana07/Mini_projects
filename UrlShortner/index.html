@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Shortner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Url Shortner</h1>
+      <form action="/shorten" method="post" id="shorten-form">
+        <input
+          type="text"
+          name="url"
+          placeholder="Enter URL to shorten"
+          required
+        />
+        <div>
+          <input
+            type="text"
+            name="shortCode"
+            placeholder="Enter custom short code "
+            required
+          />
+        </div>
+    
+      <button type="submit">Shorten</button>
+        </form>
+      <h3>Features</h3>
+      <ul>
+        <li>Shorten long URLs to a more manageable format.</li>
+        <li>Track the number of clicks on each shortened URL.</li>
+        <li>Provide analytics on URL usage.</li>
+      </ul>
+    </div>
+    <script>
+      document
+        .getElementById("shorten-form")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          // Handle form submission logic here
+          const formData = new FormData(event.target);
+          const url = formData.get("url");
+          const customCode = formData.get("shortCode");
+          console.log(url, customCode);
+        });
+    </script>
+  </body>
+</html>
