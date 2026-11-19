@@ -2,8 +2,11 @@ import { createServer } from "http";
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
 import crypto from "crypto";
+// import express from "express"
 
-const PORT = 3000;
+// const app = express();
+
+const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join("data", "links.json");
 
 const serveFile = async (res, filePath, contentType) => {
@@ -46,7 +49,21 @@ const saveLinks = async (links) => {
         "utf-8"
     );
 };
+// app.get("/", (req, res) => {
+//     try {
 
+//         const file = await fs.readFile(path.join("view", "index.html"))
+//         const links = await loadLinks();
+//     } catch (error) {
+//         console.error(error);
+
+//         res.writeHead(500, {
+//             "Content-Type": "text/plain",
+//         });
+
+//         res.end("Internal Server Error");
+//     }
+// })
 const server = createServer(async (req, res) => {
     // Home Page
     if (req.method === "GET" && req.url === "/") {

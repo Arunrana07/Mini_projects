@@ -66,8 +66,8 @@ const BASE_URL =
 const getWeather = async (city) => {
     const url =
         `${BASE_URL}?q=${city}&appid=${API_KEY}&units=metric`;
-   
-   
+
+
     try {
         const response = await fetch(url);
 
@@ -77,7 +77,7 @@ const getWeather = async (city) => {
 
         const weatherData = await response.json();
         //   console.log(weatherData);
-          
+
         console.log(chalk.green("\nWeather Information"));
         console.log(`City: ${weatherData.name}`);
         console.log(`Temperature: ${weatherData.main.temp} °C`);
